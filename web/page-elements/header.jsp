@@ -40,10 +40,10 @@
 
                         </li>
                         <li>
-                            <div class="make-switch" data-on="success" data-off="warning" style="margin-top: 10px">
-                                <input type="checkbox" checked>
+                            <div class="make-switch"  style="margin-top: 5px">
+                                <input name="my-checkbox" class="form-control" type="checkbox" checked>
                             </div>
-
+                            
                         </li>
                         <!-- end: MESSAGE DROPDOWN -->
                         <!-- start: USER DROPDOWN -->

@@ -414,7 +414,7 @@
         <script src="js/form-validation.js"></script>
         <script src="plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
         <script src="plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
-        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
+        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
         <script src="js/ui-modals.js"></script>
         <script src="js/ads-review-clickevents.js"></script>
         <script src="js/ads-review-functions.js"></script>
@@ -422,33 +422,46 @@
         <script type="text/javascript" src="js/CapsLock.js"></script>
 
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-
         <script>
-                                                                                jQuery(document).ready(function () {
-                                                                                    Main.init();
-                                                                                    $(".loader").fadeOut("slow");
-                                                                                    refresh_data();
-                                                                                    $("input").keydown(function () {
-                                                                                        if (CapsLock.isOn()) {
-                                                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                                                                                        } else {
-                                                                                            document.getElementById("caps").innerHTML = "";
-                                                                                        }
-                                                                                    });
-                                                                                    $("input").keyup(function () {
-                                                                                        if (CapsLock.isOn()) {
-                                                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                                                                                        } else {
-                                                                                            document.getElementById("caps").innerHTML = "";
-                                                                                        }
-                                                                                    });
-                                                                                
-
-                                                                                    UIModals.init();
-                                                                                    TableData.init();
-                                                                                    FormValidator.init();
-                                                                                    Index.init();
+                                                                                $(function (argument) {
+                                                                                    $('[type="checkbox"]').bootstrapSwitch({onText: 'Online', offText:'Offline',onColor:'success', offColor:'danger'});
+                                                                                    
                                                                                 });
+                                                                                $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+                                                                                    console.log(state); // true | false
+                                                                                    //$("#CheckBoxValue").text($('input[name="my-checkbox"]').bootstrapSwitch('state'));
+                                                                                    if(state===true){
+                                                                                        
+                                                                                    }else{
+                                                                                        
+                                                                                    }
+                                                                                });
+        </script>
+        <script>
+            jQuery(document).ready(function () {
+                Main.init();
+                $(".loader").fadeOut("slow");
+                refresh_data();
+                $("input").keydown(function () {
+                    if (CapsLock.isOn()) {
+                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                    } else {
+                        document.getElementById("caps").innerHTML = "";
+                    }
+                });
+                $("input").keyup(function () {
+                    if (CapsLock.isOn()) {
+                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                    } else {
+                        document.getElementById("caps").innerHTML = "";
+                    }
+                });
+
+
+                UIModals.init();
+                TableData.init();
+
+            });
 
         </script>
 
