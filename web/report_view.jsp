@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="css/theme_light.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -48,7 +49,6 @@
         <link rel="stylesheet" href="plugins/gritter/css/jquery.gritter.css">
 
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-        <script type="text/javascript" src="js/data-refresh.js"></script>
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
     </head>
     <!-- end: HEAD -->
@@ -166,7 +166,7 @@
             </div>
             <!-- start: PAGE -->
             <div class="main-content">
-                
+
                 <div class="container">
                     <!-- start: PAGE HEADER -->
                     <div class="row">
@@ -301,7 +301,6 @@
         <script type="text/javascript" src="plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="plugins/DataTables/media/js/DT_bootstrap.js"></script>
         <script src="js/table-data-reported-ads.js"></script>
-        <script src="js/table-data-message.js"></script>
         <script src="plugins/jquery-validation/dist/jquery.validate.min.js"></script>
         <script src="plugins/summernote/build/summernote.min.js"></script>
         <script src="plugins/ckeditor/ckeditor.js"></script>
@@ -314,12 +313,9 @@
         <script src="js/report-view-functions.js"></script>
         <script src="plugins/gritter/js/jquery.gritter.min.js"></script>
         <script type="text/javascript" src="js/CapsLock.js"></script>
-        <script>
-
-
-
-        </script>
-
+        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
+        <script type="text/javascript" src="js/data-refresh.js"></script>
+        
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
         <script>
@@ -327,6 +323,7 @@
 
                 Main.init();
                 $(".loader").fadeOut("slow");
+                getState();
                 refresh_data();
                 window.setInterval(function () {
                     refresh_data();
@@ -371,7 +368,7 @@
                     }
                 });
                 UIModals.init();
-                Index.init();
+                
             });
         </script>
 

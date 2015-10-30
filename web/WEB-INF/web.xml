@@ -284,6 +284,14 @@
         <servlet-name>MsgJson</servlet-name>
         <servlet-class>adminservlets_Json.MsgJson</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStateJson</servlet-name>
+        <servlet-class>adminservlets_Json.UpdateStateJson</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetStateJson</servlet-name>
+        <servlet-class>adminservlets_Json.GetStateJson</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/Dashboard</url-pattern>
@@ -563,6 +571,14 @@
     <servlet-mapping>
         <servlet-name>MsgJson</servlet-name>
         <url-pattern>/MsgJson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStateJson</servlet-name>
+        <url-pattern>/UpdateStateJson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetStateJson</servlet-name>
+        <url-pattern>/GetStateJson</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

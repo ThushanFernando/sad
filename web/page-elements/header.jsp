@@ -35,12 +35,12 @@
 
                             <a class="dropdown-toggle"  href="">
                                 <i class="clip-bubble-3"></i>
-                                <span id="" class="badge">9999</span>
+                                <span id="MC" class="badge"></span>
                             </a>
 
                         </li>
                         <li>
-                            <div class="make-switch"  style="margin-top: 5px">
+                            <div class="make-switch"  style="margin-top: 15px">
                                 <input name="my-checkbox" class="form-control" type="checkbox" checked>
                             </div>
                             

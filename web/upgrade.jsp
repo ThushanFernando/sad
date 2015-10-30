@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="css/theme_light.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -42,7 +43,6 @@
         <link href="plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
 
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-        <script type="text/javascript" src="js/data-refresh.js"></script>
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
     </head>
     <!-- end: HEAD -->
@@ -153,7 +153,7 @@
             </div>
             <!-- start: PAGE -->
             <div class="main-content">
-                
+
                 <div class="container">
                     <!-- start: PAGE HEADER -->
                     <div class="row">
@@ -284,11 +284,16 @@
     <script src="plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
     <script src="plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
     <script src="js/ui-modals.js"></script>
+    <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
     <script type="text/javascript" src="js/CapsLock.js"></script>
+    <script type="text/javascript" src="js/data-refresh.js"></script>
+        
+
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script>
         jQuery(document).ready(function () {
             $(".loader").fadeOut("slow");
+            getState();
             refresh_data();
             window.setInterval(function () {
                 refresh_data();
@@ -308,9 +313,8 @@
                 }
             });
             Main.init();
-            Index.init();
             UIModals.init();
-            FormValidator.init();
+            
         });
     </script>
 </body>

@@ -30,7 +30,7 @@ var TableData = function () {
         // modify table search input
         $('#sample_1_wrapper .dataTables_length select').addClass("m-wrap small");
         // modify table per page dropdown
-        $('#sample_1_wrapper .dataTables_length select').select2();
+        //$('#sample_1_wrapper .dataTables_length select').select2();
         // initialzie select2 dropdown
         $('#sample_1_column_toggler input[type="checkbox"]').change(function () {
             /* Get the DataTables object again - this is not a recreation, just a get of the object */

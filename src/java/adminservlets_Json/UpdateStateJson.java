@@ -6,8 +6,7 @@
 package adminservlets_Json;
 
 import classes.AdminClass_CurrentState;
-import classes.AdminClass_NavbarTools;
-import classes.AdminClass_Overviewstats;
+import classes.AdminClass_LoginMethods;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
@@ -20,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author SithuDewmi
+ * @author Asus
  */
-public class DataCountsJson extends HttpServlet {
+public class UpdateStateJson extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -64,35 +63,19 @@ public class DataCountsJson extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminClass_NavbarTools an=new AdminClass_NavbarTools();
-        AdminClass_Overviewstats ao=new AdminClass_Overviewstats();
-        
+
         AdminClass_CurrentState ac=new AdminClass_CurrentState();
-        ac.updateState();
-        
-        
-       String messageCount=String.valueOf(an.messageCount());
-       if("0".equals(messageCount)){
-           messageCount="";
-       }
-       String ads=ao.reviewAdsCount();
-       if("0".equals(ads)){
-           ads="";
-       }
-       String reports=ao.reportCount();
-       if("0".equals(reports)){
-           reports="";
-       }
+        String state=request.getParameter("status");
+        System.out.println(state);
+        if("true".equals(state)){
+            ac.setOnline();
+        }else{
+            ac.setOffline();
+        }
         PrintWriter out = response.getWriter();
 
         Gson gson = new Gson();
         JsonObject myObj = new JsonObject();
-        
-        myObj.addProperty("messageCount", messageCount);
-        myObj.addProperty("ads", ads);
-        myObj.addProperty("reports", reports);
-        myObj.addProperty("topads", "N/A");
-        
 
         out.write(myObj.toString());
         out.close();

@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="css/theme_light.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -43,7 +44,6 @@
         <link rel="stylesheet" href="plugins/gritter/css/jquery.gritter.css">
 
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-        <script type="text/javascript" src="js/data-refresh.js"></script>
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
     </head>
     <!-- end: HEAD -->
@@ -164,7 +164,7 @@
             </div>
             <!-- start: PAGE -->
             <div class="main-content">
-                
+
                 <div class="container">
                     <!-- start: PAGE HEADER -->
                     <div class="row">
@@ -303,11 +303,6 @@
         <script src="js/main.js"></script>
         <!-- end: MAIN JAVASCRIPTS -->
         <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <script src="plugins/flot/jquery.flot.js"></script>
-        <script src="plugins/flot/jquery.flot.pie.js"></script>
-        <script src="plugins/flot/jquery.flot.resize.min.js"></script>
-        <script src="plugins/jquery.sparkline/jquery.sparkline.js"></script>
-        <script src="plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
         <script src="plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
         <script src="plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>
         <script src="js/index.js"></script>
@@ -318,81 +313,84 @@
         <script src="plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
         <script src="plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
         <script src="js/ui-modals.js"></script>
-        <script src="js/ui-elements.js"></script>
         <script src="js/CapsLock.js"></script>
         <script src="plugins/gritter/js/jquery.gritter.min.js"></script>
+        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
+        <script type="text/javascript" src="js/data-refresh.js"></script>
+        
+        
         <script>
 
-                                                    function validateForm() {
-                                                        var x = document.forms["LoginUpdate"]["password"].value;
-                                                        var y = document.forms["LoginUpdate"]["password_again"].value;
-                                                        var z = document.forms["LoginUpdate"]["usernamenew"].value;
-                                                        re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,30})");
-                                                        if (x === null || x === "") {
-                                                            runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
-                                                                    + "<i  class=\"glyphicon glyphicon-remove-circle\">"
-                                                                    + "</i></button><strong> Note! </strong><br><li>Enter the password</li>"
-                                                                    + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
-                                                            return false;
-                                                        } else if (y === null || y === "") {
-                                                            runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
-                                                                    + "<i  class=\"glyphicon glyphicon-remove-circle\">"
-                                                                    + "</i></button><strong> Note! </strong><br><li>Confirm the password</li>"
-                                                                    + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
-                                                            return false;
-                                                        } else if (x.length < 8 || !re.test(x) || x.length > 30) {
-                                                            runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
-                                                                    + "<i  class=\"glyphicon glyphicon-remove-circle\">"
-                                                                    + "</i></button><strong> Note! </strong>"
-                                                                    + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
-                                                            return false;
+            function validateForm() {
+                var x = document.forms["LoginUpdate"]["password"].value;
+                var y = document.forms["LoginUpdate"]["password_again"].value;
+                var z = document.forms["LoginUpdate"]["usernamenew"].value;
+                re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,30})");
+                if (x === null || x === "") {
+                    runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
+                            + "<i  class=\"glyphicon glyphicon-remove-circle\">"
+                            + "</i></button><strong> Note! </strong><br><li>Enter the password</li>"
+                            + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
+                    return false;
+                } else if (y === null || y === "") {
+                    runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
+                            + "<i  class=\"glyphicon glyphicon-remove-circle\">"
+                            + "</i></button><strong> Note! </strong><br><li>Confirm the password</li>"
+                            + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
+                    return false;
+                } else if (x.length < 8 || !re.test(x) || x.length > 30) {
+                    runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
+                            + "<i  class=\"glyphicon glyphicon-remove-circle\">"
+                            + "</i></button><strong> Note! </strong>"
+                            + "<br><li>Password must contain at least 8-30 characters, including UPPER/lowercase and number. Special characters '$', '@', '_', '#' only.</li>");
+                    return false;
 
-                                                        } else if (y !== x) {
-                                                            runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
-                                                                    + "<i  class=\"glyphicon glyphicon-remove-circle\">"
-                                                                    + "</i></button><strong> Note! </strong><br><li>Passwords Do not match !</li>");
-                                                            return false;
-                                                        } else if (z.length > 0) {
-                                                            if (z.length < 8 || z.length > 20) {
-                                                                runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
-                                                                        + "<i  class=\"glyphicon glyphicon-remove-circle\">"
-                                                                        + "</i></button><strong> Note! </strong><br><li>User name must contain at least 8-20 characters.</li>");
-                                                                return false;
-                                                            }
-                                                        }
+                } else if (y !== x) {
+                    runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
+                            + "<i  class=\"glyphicon glyphicon-remove-circle\">"
+                            + "</i></button><strong> Note! </strong><br><li>Passwords Do not match !</li>");
+                    return false;
+                } else if (z.length > 0) {
+                    if (z.length < 8 || z.length > 20) {
+                        runNotification("<button class=\"btn btn-red\">"             //returning notification of the failure
+                                + "<i  class=\"glyphicon glyphicon-remove-circle\">"
+                                + "</i></button><strong> Note! </strong><br><li>User name must contain at least 8-20 characters.</li>");
+                        return false;
+                    }
+                }
 
-                                                    }
-                                                    //function to initiate jquery.gritter
-                                                    function runNotification(alert) {
-                                                        var i = alert;
-                                                        if (i !== "null") {
+            }
+            //function to initiate jquery.gritter
+            function runNotification(alert) {
+                var i = alert;
+                if (i !== "null") {
 
-                                                            var unique_id = $.gritter.add({
-                                                                // (string | mandatory) the heading of the notification
-                                                                title: 'Notification!',
-                                                                // (string | mandatory) the text inside the notification
-                                                                text: alert,
-                                                                // (bool | optional) if you want it to fade out on its own or just sit there
-                                                                sticky: false,
-                                                                // (int | optional) the time you want it to be alive for before fading out
-                                                                time: 5000,
-                                                                // (string | optional) the class name you want to apply to that specific message
-                                                                class_name: 'my-sticky-class'
-                                                            });
-                                                            // You can have it return a unique id, this can be used to manually remove it later using
-                                                            /*
-                                                             setTimeout(function(){
-                                                             $.gritter.remove(unique_id, {
-                                                             fade: true,
-                                                             speed: 'slow'
-                                                             });
-                                                             }, 6000)
-                                                             */
-                                                            return false;
+                    var unique_id = $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'Notification!',
+                        // (string | mandatory) the text inside the notification
+                        text: alert,
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: false,
+                        // (int | optional) the time you want it to be alive for before fading out
+                        time: 5000,
+                        // (string | optional) the class name you want to apply to that specific message
+                        class_name: 'my-sticky-class'
+                    });
+                    // You can have it return a unique id, this can be used to manually remove it later using
+                    /*
+                     setTimeout(function(){
+                     $.gritter.remove(unique_id, {
+                     fade: true,
+                     speed: 'slow'
+                     });
+                     }, 6000)
+                     */
+                    return false;
 
-                                                        }
+                }
 
-                                                    }
+            }
 
 
         </script>
@@ -402,9 +400,10 @@
                 Main.init();
                 runNotification("<%=alert%>");
                 $(".loader").fadeOut("slow");
+                getState();
                 refresh_data();
                 window.setInterval(function () {
-                    //refresh_data();
+                    refresh_data();
                 }, 3000);
                 $("input").keydown(function () {
                     if (CapsLock.isOn()) {
@@ -421,8 +420,7 @@
                     }
                 });
                 UIModals.init();
-                UIElements.init();
-                Index.init();
+                
 
             });
         </script>

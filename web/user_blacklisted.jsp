@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="css/theme_light.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -49,7 +50,6 @@
         <link rel="stylesheet" href="plugins/gritter/css/jquery.gritter.css">
 
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-        <script type="text/javascript" src="js/data-refresh.js"></script>
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
     </head>
     <!-- end: HEAD -->
@@ -340,35 +340,38 @@
         <script src="js/user-blacklist-clickevents.js"></script>
         <script src="js/user-blacklist-functions.js"></script>
         <script src="plugins/gritter/js/jquery.gritter.min.js"></script>
+        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
         <script type="text/javascript" src="js/CapsLock.js"></script>
+        <script type="text/javascript" src="js/data-refresh.js"></script>
+        
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
         <script>
-                                                jQuery(document).ready(function () {
-                                                    $(".loader").fadeOut("slow");
-                                                    refresh_data();
-                                                    window.setInterval(function () {
-                                                        refresh_data();
-                                                    }, 3000);
-                                                    $("input").keydown(function () {
-                                                        if (CapsLock.isOn()) {
-                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                                                        } else {
-                                                            document.getElementById("caps").innerHTML = "";
-                                                        }
-                                                    });
-                                                    $("input").keyup(function () {
-                                                        if (CapsLock.isOn()) {
-                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                                                        } else {
-                                                            document.getElementById("caps").innerHTML = "";
-                                                        }
-                                                    });
-                                                    Main.init();
-                                                    TableData.init();
-                                                    Index.init();
-                                                    UIModals.init();
-                                                });
+            jQuery(document).ready(function () {
+                $(".loader").fadeOut("slow");
+                getState();
+                refresh_data();
+                window.setInterval(function () {
+                    refresh_data();
+                }, 3000);
+                $("input").keydown(function () {
+                    if (CapsLock.isOn()) {
+                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                    } else {
+                        document.getElementById("caps").innerHTML = "";
+                    }
+                });
+                $("input").keyup(function () {
+                    if (CapsLock.isOn()) {
+                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                    } else {
+                        document.getElementById("caps").innerHTML = "";
+                    }
+                });
+                Main.init();
+                TableData.init();
+                UIModals.init();
+            });
         </script>
     </body>
     <!-- end: BODY -->

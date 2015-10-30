@@ -23,12 +23,27 @@ function refresh_data() {
     });
 
 
-    
+
 
 
 
 }
 ;
+function getState() {
+    $.ajax({
+        type: "POST",
+        url: "GetStateJson",
+        dataType: "json",
+        success: function (data) {
+            var state = data.state;
+            if (state === 'true') {
+                $('[type="checkbox"]').bootstrapSwitch({onText: 'Online', offText: 'Offline', onColor: 'success', offColor: 'danger', size: 'mini'});
+            } else {
+                $('[type="checkbox"]').bootstrapSwitch({onText: 'Online', offText: 'Offline', onColor: 'success', offColor: 'danger', size: 'mini', state: false});
+            }
+        }
+    });
+}
 
 
 function customData() {
@@ -97,7 +112,6 @@ function clr() {
     document.getElementById("CustomDataUserJson").innerHTML = "";
     document.getElementById("CustomDataAdsJson").innerHTML = "";
     document.getElementById("CheckPassJson").innerHTML = "";
-    document.getElementById("username").value = "";
     document.getElementById("password").value = "";
 
 }
@@ -158,4 +172,17 @@ function login_check() {
     }
     return false;
 }
+$('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+    
+    $.ajax({
+        type: "POST",
+        url: "UpdateStateJson",
+        dataType: "json",
+        data: {
+            status: state
+
+        }
+       
+    });
+});
        

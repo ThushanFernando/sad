@@ -39,7 +39,12 @@
                                 <span id="MC" class="badge"></span>
                             </a>
                         </li>
+                        <li>
+                            <div class="make-switch"  style="margin-top: 15px">
+                                <input name="my-checkbox" class="form-control" type="checkbox" checked>
+                            </div>
 
+                        </li>
                         <!-- end: MESSAGE DROPDOWN -->
                         <!-- start: USER DROPDOWN -->
                         <li class="dropdown current-user">

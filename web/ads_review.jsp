@@ -47,7 +47,6 @@
         <link rel="stylesheet" type="text/css" href="plugins/select2/select2.css" />
         <link rel="stylesheet" href="plugins/DataTables/media/css/DT_bootstrap.css" />
         <link rel="stylesheet" href="plugins/summernote/build/summernote.css">
-        <script type="text/javascript" src="js/data-refresh.js"></script>
         <link rel="stylesheet" href="plugins/gritter/css/jquery.gritter.css">
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
@@ -420,48 +419,39 @@
         <script src="js/ads-review-functions.js"></script>
         <script src="plugins/gritter/js/jquery.gritter.min.js"></script>
         <script type="text/javascript" src="js/CapsLock.js"></script>
+        <script type="text/javascript" src="js/data-refresh.js"></script>
+
 
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
         <script>
-                                                                                $(function (argument) {
-                                                                                    $('[type="checkbox"]').bootstrapSwitch({onText: 'Online', offText:'Offline',onColor:'success', offColor:'danger'});
-                                                                                    
+                                                                                jQuery(document).ready(function () {
+                                                                                    Main.init();
+                                                                                    $(".loader").fadeOut("slow");
+                                                                                    getState();
+                                                                                    refresh_data();
+                                                                                    window.setInterval(function () {
+                                                                                        refresh_data();
+                                                                                    }, 3000);
+                                                                                    $("input").keydown(function () {
+                                                                                        if (CapsLock.isOn()) {
+                                                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                                                                                        } else {
+                                                                                            document.getElementById("caps").innerHTML = "";
+                                                                                        }
+                                                                                    });
+                                                                                    $("input").keyup(function () {
+                                                                                        if (CapsLock.isOn()) {
+                                                                                            document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
+                                                                                        } else {
+                                                                                            document.getElementById("caps").innerHTML = "";
+                                                                                        }
+                                                                                    });
+
+
+                                                                                    UIModals.init();
+                                                                                    TableData.init();
+
                                                                                 });
-                                                                                $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
-                                                                                    console.log(state); // true | false
-                                                                                    //$("#CheckBoxValue").text($('input[name="my-checkbox"]').bootstrapSwitch('state'));
-                                                                                    if(state===true){
-                                                                                        
-                                                                                    }else{
-                                                                                        
-                                                                                    }
-                                                                                });
-        </script>
-        <script>
-            jQuery(document).ready(function () {
-                Main.init();
-                $(".loader").fadeOut("slow");
-                refresh_data();
-                $("input").keydown(function () {
-                    if (CapsLock.isOn()) {
-                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                    } else {
-                        document.getElementById("caps").innerHTML = "";
-                    }
-                });
-                $("input").keyup(function () {
-                    if (CapsLock.isOn()) {
-                        document.getElementById("caps").innerHTML = "Caps Lock is on!\n";
-                    } else {
-                        document.getElementById("caps").innerHTML = "";
-                    }
-                });
-
-
-                UIModals.init();
-                TableData.init();
-
-            });
 
         </script>
 

@@ -20,7 +20,7 @@ public class DbClass {
     //connection object
     public Connection conn = null;
 
-     //sql url
+    //sql url
     public static final String URL = "jdbc:mysql://localhost:3306/";
     //sql database name
     public static String dbName = "classifiedsite";
@@ -28,6 +28,15 @@ public class DbClass {
     public static String username = "root";
     //password
     public static String password = "";
+    
+    /* //sql url
+    public static final String URL = "jdbc:mysql://localhost/";
+    //sql database name
+    public static String dbName = "superb_classified";
+    //username
+    public static String username = "superb_ngs";
+    //password
+    public static String password = "next#0714233441pa$$word@superb";*/
 
     //open connection
     public boolean getConnection() {

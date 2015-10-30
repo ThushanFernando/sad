@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="plugins/perfect-scrollbar/src/perfect-scrollbar.css">
         <link rel="stylesheet" href="css/theme_light.css" type="text/css" id="skin_color">
         <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -53,7 +54,7 @@
         <link rel="stylesheet" href="plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css">
         <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
         <link rel="shortcut icon"  href="images/icon.png" type="image/x-icon" />
-        <script type="text/javascript" src="js/data-refresh.js"></script>
+
 
     </head>
     <!-- end: HEAD -->
@@ -261,7 +262,7 @@
             </div>
             <!-- start: PAGE -->
             <div class="main-content">
-                
+
                 <div class="container">
                     <!-- start: PAGE HEADER -->
                     <div class="row">
@@ -900,10 +901,11 @@
         <script src="plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
         <script src="plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
         <script src="js/ui-modals.js"></script>
-        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.min.js"></script>
+        <script src="plugins/bootstrap-switch/static/js/bootstrap-switch.js"></script>
         <!-- load Google AJAX API -->
         <script type="text/javascript" src="js/chart.js"></script>
         <script type="text/javascript" src="js/CapsLock.js"></script>
+        <script type="text/javascript" src="js/data-refresh.js"></script>
 
 
 
@@ -1124,11 +1126,12 @@
                     2]);
                 var options = {
                     title: 'Active ads for Districts',
-                    legend: {position: "none"},
+                    legend: {position: "none"}
                 };
                 var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_districts"));
                 chart.draw(view, options);
             }
+
         </script>
         <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
@@ -1136,6 +1139,7 @@
             jQuery(document).ready(function () {
 
                 $(".loader").fadeOut("slow");
+                getState();
                 refresh_data();
                 window.setInterval(function () {
                     refresh_data();
@@ -1156,7 +1160,7 @@
                 });
                 Main.init();
                 UIModals.init();
-                FormValidator.init();
+                
             });
         </script>
     </body>
